@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 //I've added these imports
 import { BoardgamesApiService } from './services/boardgames-api.service';
 import { HttpClientModule } from '@angular/common/http'
+import { ModalBoardgameInfoPageModule } from './modal-boardgame-info/modal-boardgame-info.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalBoardgameInfoPageModule
   ],
   providers: [
     StatusBar,

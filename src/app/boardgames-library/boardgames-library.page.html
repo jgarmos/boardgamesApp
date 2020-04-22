@@ -13,7 +13,7 @@
       <ion-badge slot="end">{{boardgamesList.games.length}}</ion-badge>
       <ion-label>Numero de cajas:</ion-label>
     </ion-item>
-    <ion-item *ngFor=" let boardgame of boardgamesList.games">
+    <ion-item *ngFor=" let boardgame of boardgamesList.games" (click)="showBoardgameInfo(boardgame)">
       <ion-avatar slot="start">
         <img [src]="boardgame.thumb_url">
       </ion-avatar>

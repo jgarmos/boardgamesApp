@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Boardgames } from './Boardgames';
 import { BoardgamesApiService } from './../services/boardgames-api.service';
 import { HttpResponse } from '@angular/common/http';
+import { ModalController } from '@ionic/angular';
+import { ModalBoardgameInfoPage } from './../modal-boardgame-info/modal-boardgame-info.page';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class BoardgamesLibraryPage implements OnInit {
   boardgamesList: Boardgames;
   numberOfGames: number;
 
-  constructor(private boargamesAPI: BoardgamesApiService) {
+  constructor(private boargamesAPI: BoardgamesApiService, private modalCtrl:ModalController) {
     this.boardgamesList = new Boardgames();
     this.numberOfGames = 0;
   }
@@ -36,5 +38,18 @@ export class BoardgamesLibraryPage implements OnInit {
       }
     )
   }
+  showBoardgameInfo(boardgame){
+    this.modalCtrl.create({
+      component: ModalBoardgameInfoPage,
+      componentProps: { boardgame },
+
+    }).then((modal) =>{
+      modal.onDidDismiss().then(() =>{
+        //se ejecuta al cerrar
+      });
+      modal.present();
+    });
+  }
+
 }
 

@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'my-friends',
     loadChildren: () => import('./my-friends/my-friends.module').then( m => m.MyFriendsPageModule)
+  },
+  {
+    path: 'modal-boardgame-info',
+    loadChildren: () => import('./modal-boardgame-info/modal-boardgame-info.module').then( m => m.ModalBoardgameInfoPageModule)
   }
 ];
 
