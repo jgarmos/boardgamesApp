@@ -33,6 +33,7 @@ export class BoardgamesLibraryPage implements OnInit {
         this.boardgamesList.games.push(...boardgames.games);
         console.log("llamando a Api exitosamente");
         this.boardgamesList.games.map(game => console.log (game.name));
+        this.numberOfGames += 100;
       }, resp_ko => {
         console.log("Error al recuperar la lista de películas");
       }
@@ -49,6 +50,21 @@ export class BoardgamesLibraryPage implements OnInit {
       });
       modal.present();
     });
+  }
+
+  loadData(event) {
+    setTimeout(() => {
+      console.log('Done');
+      debugger;
+      this.loadBoardgames();
+      event.target.complete();
+      
+      // App logic to determine if all data is loaded
+      // and disable the infinite scroll
+      if (this.boardgamesList.games.length == 1000) {
+        event.target.disabled = true;
+      }
+    }, 500);
   }
 
 }
