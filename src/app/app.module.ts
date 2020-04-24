@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BoardgamesApiService } from './services/boardgames-api.service';
 import { HttpClientModule } from '@angular/common/http'
 import { ModalBoardgameInfoPageModule } from './modal-boardgame-info/modal-boardgame-info.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +24,8 @@ import { ModalBoardgameInfoPageModule } from './modal-boardgame-info/modal-board
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    ModalBoardgameInfoPageModule
+    ModalBoardgameInfoPageModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StatusBar,
