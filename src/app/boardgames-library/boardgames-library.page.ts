@@ -54,8 +54,6 @@ export class BoardgamesLibraryPage implements OnInit {
 
   loadData(event) {
     setTimeout(() => {
-      console.log('Done');
-      debugger;
       this.loadBoardgames();
       event.target.complete();
       
