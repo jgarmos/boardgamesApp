@@ -4,7 +4,7 @@ import { BoardgamesApiService } from './../services/boardgames-api.service';
 import { HttpResponse } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
 import { ModalBoardgameInfoPage } from './../modal-boardgame-info/modal-boardgame-info.page';
-
+import { Network } from '@ngx-pwa/offline';
 
 @Component({
   selector: 'app-boardgames-library',
@@ -15,8 +15,12 @@ export class BoardgamesLibraryPage implements OnInit {
 
   boardgamesList: Boardgames;
   numberOfGames: number;
+  online$ = this.network.onlineChanges
 
-  constructor(private boargamesAPI: BoardgamesApiService, private modalCtrl:ModalController) {
+  constructor(private boargamesAPI: BoardgamesApiService, 
+    private modalCtrl:ModalController,
+    private network:Network
+    ) {
     this.boardgamesList = new Boardgames();
     this.numberOfGames = 0;
   }
