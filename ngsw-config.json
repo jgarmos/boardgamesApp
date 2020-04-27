@@ -3,11 +3,11 @@
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "app",
+      "name": "Boardgames App",
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/favicon.ico",
+          "/assets/icon/favicon.ico",
           "/index.html",
           "/manifest.webmanifest",
           "/*.css",
