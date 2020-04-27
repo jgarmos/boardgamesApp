@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button text="" (click)="closeModal()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Informacion del juego</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{boardgame.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-img [src]="boardgame.thumb_url"></ion-img>
+      <p> {{boardgame.year_published}} </p>
+      <p> <strong>Jugadores:</strong>De {{boardgame.min_players}} a {{boardgame.max_players}} jugadores  </p>
+      <p> <strong>Duracion:</strong>{{boardgame.min_playtime}} - {{boardgame.max_playtime}} minutos  </p>
+      <p> <strong>Descripcion:</strong>{{boardgame.description}} </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
