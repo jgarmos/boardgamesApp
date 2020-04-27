@@ -25,5 +25,16 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "boardgamesLibrary",
+      "urls": ["https://www.boardgameatlas.com/api/*"],
+      "cacheConfig": {
+        "maxSize": 250,
+        "maxAge": "30d",
+        "strategy": "performance"
+      }
+    }     
   ]
 }
