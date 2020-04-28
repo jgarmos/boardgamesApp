@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { ModalBoardgameInfoPageModule } from './modal-boardgame-info/modal-boardgame-info.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+// Import ionic-rating module
+import { IonicRatingModule } from 'ionic4-rating';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +27,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     HttpClientModule,
     ModalBoardgameInfoPageModule,
+    IonicRatingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

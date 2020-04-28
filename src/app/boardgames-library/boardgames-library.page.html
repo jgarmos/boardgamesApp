@@ -23,7 +23,7 @@
     </ion-item>
     <ion-item *ngFor=" let boardgame of boardgamesList.games" (click)="showBoardgameInfo(boardgame)">
       <ion-avatar slot="start">
-        <img [src]="boardgame.thumb_url">
+        <img [src]="boardgame.images.small">
       </ion-avatar>
       <ion-label>
         <h2> {{ boardgame.name}}</h2>

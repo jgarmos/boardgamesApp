@@ -15,5 +15,19 @@ export class Game {
     max_players:number;
     min_playtime:number;
     max_playtime:number;
+    images: Images;
+    average_user_rating:number;
+    rules_url:string;
+    constructor(){
+        this.images = new Images();
+    }
+}
+
+export class Images {
+    thumb: string;
+    small: string;
+    medium: string;
+    large: string;
+    original: string;
 }
 

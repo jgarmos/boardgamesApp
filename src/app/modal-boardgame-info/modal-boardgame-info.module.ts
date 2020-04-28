@@ -8,11 +8,14 @@ import { ModalBoardgameInfoPageRoutingModule } from './modal-boardgame-info-rout
 
 import { ModalBoardgameInfoPage } from './modal-boardgame-info.page';
 
+import { IonicRatingModule } from 'ionic4-rating';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    IonicRatingModule,
     ModalBoardgameInfoPageRoutingModule
   ],
   declarations: [ModalBoardgameInfoPage]

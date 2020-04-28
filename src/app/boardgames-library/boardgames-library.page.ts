@@ -17,10 +17,10 @@ export class BoardgamesLibraryPage implements OnInit {
   numberOfGames: number;
   online$ = this.network.onlineChanges
 
-  constructor(private boargamesAPI: BoardgamesApiService, 
-    private modalCtrl:ModalController,
-    private network:Network
-    ) {
+  constructor(private boargamesAPI: BoardgamesApiService,
+    private modalCtrl: ModalController,
+    private network: Network
+  ) {
     this.boardgamesList = new Boardgames();
     this.numberOfGames = 0;
   }
@@ -36,20 +36,20 @@ export class BoardgamesLibraryPage implements OnInit {
         let boardgames = httpResponse.body;
         this.boardgamesList.games.push(...boardgames.games);
         console.log("llamando a Api exitosamente");
-        this.boardgamesList.games.map(game => console.log (game.name));
+        this.boardgamesList.games.map(game => console.log(game.name));
         this.numberOfGames += 100;
       }, resp_ko => {
         console.log("Error al recuperar la lista de películas");
       }
     )
   }
-  showBoardgameInfo(boardgame){
+  showBoardgameInfo(boardgame) {
     this.modalCtrl.create({
       component: ModalBoardgameInfoPage,
       componentProps: { boardgame },
 
-    }).then((modal) =>{
-      modal.onDidDismiss().then(() =>{
+    }).then((modal) => {
+      modal.onDidDismiss().then(() => {
         //se ejecuta al cerrar
       });
       modal.present();
@@ -60,7 +60,7 @@ export class BoardgamesLibraryPage implements OnInit {
     setTimeout(() => {
       this.loadBoardgames();
       event.target.complete();
-      
+
       // App logic to determine if all data is loaded
       // and disable the infinite scroll
       if (this.boardgamesList.games.length == 1000) {

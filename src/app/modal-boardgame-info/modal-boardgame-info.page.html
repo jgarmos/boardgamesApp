@@ -12,14 +12,29 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>{{boardgame.name}}</ion-card-title>
+      <ion-card-title color="primary">{{boardgame.name}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-img [src]="boardgame.thumb_url"></ion-img>
-      <p> {{boardgame.year_published}} </p>
-      <p> <strong>Jugadores:</strong>De {{boardgame.min_players}} a {{boardgame.max_players}} jugadores  </p>
-      <p> <strong>Duracion:</strong>{{boardgame.min_playtime}} - {{boardgame.max_playtime}} minutos  </p>
-      <p> <strong>Descripcion:</strong>{{boardgame.description}} </p>
+      <ion-img [src]="boardgame.images.medium"></ion-img>
+      <ion-item>
+        <ion-badge>{{boardgame.average_user_rating.toFixed(2)}}</ion-badge>
+        <rating [rate]="boardgame.average_user_rating" readonly="true" size="default"></rating>
+      </ion-item>
+      <ion-item>
+        <strong>Año Publicación:</strong>{{boardgame.year_published}}
+      </ion-item>
+      <ion-item>
+        <strong>Jugadores:</strong>De {{boardgame.min_players}} a {{boardgame.max_players}} jugadores
+      </ion-item>
+      <ion-item>
+        <strong>Duracion:</strong>{{boardgame.min_playtime}} - {{boardgame.max_playtime}} minutos
+      </ion-item>
+      <ion-item>
+        <div [innerHTML]="boardgame.description"></div>
+      </ion-item>
+      <ion-item>
+        <a href="{{boardgame.rules_url}}">Reglas de juego</a>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 </ion-content>
