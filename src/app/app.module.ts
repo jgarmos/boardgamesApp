@@ -17,6 +17,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 // Import ionic-rating module
 import { IonicRatingModule } from 'ionic4-rating';
+//Cordova imports
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +36,7 @@ import { IonicRatingModule } from 'ionic4-rating';
     StatusBar,
     SplashScreen,
     BoardgamesApiService,
+    InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

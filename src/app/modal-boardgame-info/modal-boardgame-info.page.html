@@ -39,7 +39,9 @@
         <div [innerHTML]="boardgame.description"></div>
       </ion-item>
       <ion-item>
-        <a href="{{boardgame.rules_url}}">Reglas de juego</a>
+        <ion-button size="large" color="secondary" (click)="openBoardgamesRulesWithCordovaBrowser()">
+          Ir a reglas de juego
+        </ion-button>
       </ion-item>
     </ion-card-content>
   </ion-card>
