@@ -13,6 +13,8 @@ import { Network } from '@ngx-pwa/offline';
 })
 export class BoardgamesLibraryPage implements OnInit {
 
+  searchTerm: string = '';
+  filterData = [];//Store filtered data
   boardgamesList: Boardgames;
   numberOfGames: number;
   online$ = this.network.onlineChanges
@@ -67,6 +69,24 @@ export class BoardgamesLibraryPage implements OnInit {
         event.target.disabled = true;
       }
     }, 500);
+  }
+
+  loadBoardgameByName(){
+    this.boargamesAPI.searchBoardgameByName(this.searchTerm).subscribe(
+      resp_ok => {
+        let httpResponse:HttpResponse<Boardgames> = resp_ok as HttpResponse<Boardgames>;
+        let searchedBoardgames = httpResponse.body;
+        this.boardgamesList.games = searchedBoardgames.games;
+      }, resp_ko => {
+        console.log("Error al recuperar la lista de películas");
+      }
+    )
+  }
+
+  setFilteredLocations() {
+    this.filterData = this.boardgamesList.games.filter((game) => {
+      return game.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+    });
   }
 
 }
