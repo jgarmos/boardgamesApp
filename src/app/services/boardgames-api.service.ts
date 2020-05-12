@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from './../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoardgamesApiService {
 
-  public static readonly BOARDGAMES_API_URL = "https://www.boardgameatlas.com/api/search?client_id=Gz15PmN0vr"
+  public static readonly BOARDGAMES_API_URL = "https://www.boardgameatlas.com/api/search?client_id=" + environment.boardGameAtlas.clientId;
   
   constructor(public http:HttpClient) { }
 
