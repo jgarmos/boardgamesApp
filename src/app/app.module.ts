@@ -19,6 +19,10 @@ import { environment } from '../environments/environment';
 import { IonicRatingModule } from 'ionic4-rating';
 //Cordova imports
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+//Firebase imports
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +34,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
     HttpClientModule,
     ModalBoardgameInfoPageModule,
     IonicRatingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
@@ -37,6 +43,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
     SplashScreen,
     BoardgamesApiService,
     InAppBrowser,
+    AngularFireAuth,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
