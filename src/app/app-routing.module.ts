@@ -30,7 +30,12 @@ const routes: Routes = [
   {
     path: 'modal-boardgame-info',
     loadChildren: () => import('./modal-boardgame-info/modal-boardgame-info.module').then( m => m.ModalBoardgameInfoPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   }
+
 ];
 
 @NgModule({
