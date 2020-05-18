@@ -6,6 +6,19 @@
           <ion-list-header>Boardgames App</ion-list-header>
           <ion-note>Tus juegos de mesa favoritos</ion-note>
 
+          <ion-item  *ngIf="isLoggedIn()">
+            <ion-avatar slot="start">
+                <img src="https://www.placecage.com/200/300">
+            </ion-avatar>
+            <ion-label>
+              <h2>nombre</h2>
+            </ion-label>
+            <ion-button size="small" slot="end" (click)="logout()" color="secondary">
+              <ion-icon slot="end" name="log-out-outline"></ion-icon>
+              <ion-label>Log out</ion-label>
+            </ion-button>
+          </ion-item>
+
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>

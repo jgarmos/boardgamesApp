@@ -53,7 +53,6 @@ export class AuthService {
 
   logoutUser() {
     return new Promise<any>((resolve, reject) => {
-      debugger;
       this.afAuth.signOut()
         .then(
           res => resolve(res),
