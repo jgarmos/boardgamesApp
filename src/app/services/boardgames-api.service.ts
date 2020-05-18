@@ -24,4 +24,14 @@ export class BoardgamesApiService {
     return server_response;
   }
 
+  searchBoardgameByName(name:string):Observable<object>{
+    
+    let server_response :Observable<object>;
+    let url:string;
+    url = BoardgamesApiService.BOARDGAMES_API_URL + '&name=' + name;
+
+    server_response = this.http.get(url , {observe:"response"});
+    return server_response;
+  }
+
 }
