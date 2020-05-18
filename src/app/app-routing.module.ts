@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'boardgames-library',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -17,15 +18,18 @@ const routes: Routes = [
   },
   {
     path: 'my-boardgames-collection',
-    loadChildren: () => import('./my-boardgames-collection/my-boardgames-collection.module').then( m => m.MyBoardgamesCollectionPageModule)
+    loadChildren: () => import('./my-boardgames-collection/my-boardgames-collection.module').then( m => m.MyBoardgamesCollectionPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'my-games',
-    loadChildren: () => import('./my-games/my-games.module').then( m => m.MyGamesPageModule)
+    loadChildren: () => import('./my-games/my-games.module').then( m => m.MyGamesPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'my-friends',
-    loadChildren: () => import('./my-friends/my-friends.module').then( m => m.MyFriendsPageModule)
+    loadChildren: () => import('./my-friends/my-friends.module').then( m => m.MyFriendsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'modal-boardgame-info',
