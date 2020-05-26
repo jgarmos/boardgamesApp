@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Boardgames, Game } from './../boardgames-library/Boardgames';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, ToastController, IonSegment } from '@ionic/angular';
+import { CarrouselOptions } from './carrousel-options';
 
 @Component({
   selector: 'app-my-boardgames-collection',
@@ -10,12 +11,16 @@ import { AlertController, ToastController } from '@ionic/angular';
 export class MyBoardgamesCollectionPage implements OnInit {
 
   myBoardgamesList: Boardgames;
+  carrousel_options: CarrouselOptions;
+  isSimpleList: boolean;
 
   constructor(
     private alertCtrl: AlertController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
   ) {
     this.myBoardgamesList = new Boardgames();
+    this.carrousel_options = new CarrouselOptions();
+    this.isSimpleList = true;
   }
 
   ngOnInit() {
@@ -59,5 +64,17 @@ export class MyBoardgamesCollectionPage implements OnInit {
       ]
     });
     await alert.present();
+  }
+
+  changeView(evento) {
+    console.log('Segment changed', evento.target);
+    let is:IonSegment  = <IonSegment> evento.target;
+    console.log (is.value);
+    this.carrousel_options.setAnimacion(is.value);
+    if (is.value === 'list'){
+      this.isSimpleList = true;
+    }else{
+      this.isSimpleList = false;
+    }
   }
 }
