@@ -46,10 +46,9 @@ export class BoardgamesLibraryPage implements OnInit {
         let boardgames = httpResponse.body;
         this.boardgamesList.games.push(...boardgames.games);
         console.log("llamando a Api exitosamente");
-        this.boardgamesList.games.map(game => console.log(game.name));
         this.numberOfGames += 100;
       }, resp_ko => {
-        console.log("Error al recuperar la lista de películas");
+        console.log("error retrieving boardgames");
       }
     )
   }

@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   public selectedIndex = 0;
   public appPages = [
     {
@@ -44,7 +45,7 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public afAuth: AuthService,
-    private navCtrl:Router 
+    private navCtrl: Router
   ) {
     this.initializeApp();
   }
@@ -62,8 +63,8 @@ export class AppComponent implements OnInit {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
   }
-  
-  
+
+
   isLoggedIn() {
     return this.afAuth.isLoggedIn;
   }
@@ -73,11 +74,11 @@ export class AppComponent implements OnInit {
       .then(res => {
         console.log(res);
         // localStorage.removeItem('user');
-        this.navCtrl.navigate (['login']);
+        this.navCtrl.navigate(['login']);
       })
       .catch(error => {
         console.log(error);
       })
   }
-  
+
 }

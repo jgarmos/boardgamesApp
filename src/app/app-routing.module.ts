@@ -5,7 +5,7 @@ import { AuthGuard } from './guard/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'my-boardgames-collection',
     pathMatch: 'full'
   },
   {
@@ -14,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'boardgames-library',
-    loadChildren: () => import('./boardgames-library/boardgames-library.module').then( m => m.BoardgamesLibraryPageModule)
+    loadChildren: () => import('./boardgames-library/boardgames-library.module').then( m => m.BoardgamesLibraryPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'my-boardgames-collection',
