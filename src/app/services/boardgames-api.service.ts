@@ -9,7 +9,7 @@ import { environment } from './../../environments/environment';
 })
 export class BoardgamesApiService {
 
-  public static readonly BOARDGAMES_API_URL = "https://www.boardgameatlas.com/api/search?client_id=" + environment.boardGameAtlas.clientId;
+  public static readonly BOARDGAMES_API_URL = "https://api.boardgameatlas.com/api/search?client_id=" + environment.boardGameAtlas.clientId;
   
   constructor(public http:HttpClient) { }
 
